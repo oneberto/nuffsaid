@@ -53,8 +53,14 @@ const Snack = () => {
       autoHideDuration={2000}
       onClose={handleClose}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      data-testid="snack"
     >
-      <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+      <Alert
+        data-testid="snack-title"
+        onClose={handleClose}
+        severity="error"
+        sx={{ width: "100%" }}
+      >
         {lastErrorMessage}
       </Alert>
     </Snackbar>

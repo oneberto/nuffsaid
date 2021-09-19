@@ -1,12 +1,6 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Header from "../components/Header";
-import { INITIAL_STATE, StoreProvider } from "../store";
-import { storeReducer } from "../store/reducer";
-import Message from "../components/Message";
+import { render, screen } from "@testing-library/react";
 import { generateMessage } from "../utils/generateMessage";
-import { ThemeProvider } from "styled-components";
-import theme from "../configs/theme";
 import ListMessages from "../components/ListMessages";
 import AppProvider from "../AppProvider";
 import { getPriorityName } from "../utils/getPriorityName";
