@@ -10,6 +10,7 @@ import theme from "../configs/theme";
 import ListMessages from "../components/ListMessages";
 import AppProvider from "../AppProvider";
 import { getPriorityName } from "../utils/getPriorityName";
+import { getColorByPriority } from "../utils/getColorByPriority";
 
 const message = generateMessage();
 
@@ -36,4 +37,22 @@ test("renders correct title", () => {
 test("renders correct count", () => {
   const title = screen.getByTestId("list-messages-count");
   expect(title).toHaveTextContent("Count 1");
+});
+
+test("renders correct number of messages", () => {
+  const messageElement = screen.getByTestId("message");
+  expect(messageElement).toBeInTheDocument();
+  expect(screen.getAllByTestId("message")).toHaveLength(1);
+});
+
+test("renders correct message", () => {
+  const messageElement = screen.getByTestId("message");
+  expect(messageElement).toBeInTheDocument();
+
+  const messageTitle = screen.getByTestId("message-title");
+  expect(messageTitle).toHaveTextContent(message.message);
+
+  expect(messageElement).toHaveStyle(
+    `background-color: ${getColorByPriority(message.priority)}`
+  );
 });
